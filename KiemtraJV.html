@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // Demo
+      function demo(a) {
+        let maxNumber = a[0];
+        for (i = 1; i <= a.length - 1; i++) {
+          if (maxNumber < a[i]) {
+            maxNumber = a[i];
+          }
+        }
+        return maxNumber;
+      }
+
+      // Bai 2: cho mot mang co do dai lon hon 2, chua cac so khac nhau. Hay viet ham tim ra so lon thu nhi trong mang.
+      function bai2(a) {
+        let hamTangDan = a.sort(function (a, b) {
+          return a - b;
+        });
+        let Max2 = hamTangDan[hamTangDan.length - 2];
+        return Max2;
+      }
+
+      //Bai 3: cho mot mang cac chuoi bat ki co do dai khac nhau. Hay tim ra chuoi co do dai lon nhat
+      function bai3(b) {
+        let maxString = b[0];
+        for (i = 1; i < b.length; i++) {
+          if (maxString.length < b[i].length) {
+            maxString = b[i];
+          }
+        }
+        return maxString;
+      }
+      // Bai 4: Viết hàm có 2 tham số là 2 chuỗi string và target khác rỗng, dùng để kiểm tra chuỗi string có kết
+      //thúc bởi chuỗi target hay không. Kết quả trả về là true hoặc false.(Dùng 2 vong lặp lông fnhau) indexOf, lastIndexOf()
+      /* function bai4(strin, targe) {
+            for (var i = 1;  i <= targe.length - 1; i++) {
+                let str = strin[strin.lenth - i]
+                let tar = targe[targe.length - i]
+                if (str == tar) {
+                    var result = true;
+                }
+                else {
+                    var result = false;
+                }
+            }
+            return result;
+
+
+        }*/
+      function bai4(string, target) {
+        let tar_length = target.length;
+        let substring = string.substr(-tar_length);
+        if (substring == target) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      // Bia 5: goi y giai:
+      function bai5(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]){
+             return true;
+            }
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
