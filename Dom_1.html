@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <p id="p1" class="pi">
+      Đây Là Đoạn Văn Số 1:Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Ut dignissimos quae illo voluptates, incidunt dolores. Sint eum aut
+      doloribus itaque vitae! Et voluptatem hic itaque, esse nesciunt alias
+      error recusandae?
+    </p>
+    <p id="p2">
+      Đây Là Đoạn Văn Số 2:Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Ut dignissimos quae illo voluptates, incidunt dolores. Sint eum aut
+      doloribus itaque vitae! Et voluptatem hic itaque, esse nesciunt alias
+      error recusandae?
+    </p>
+    <p id="p3">
+      Đây Là Đoạn Văn Số 3:Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Ut dignissimos quae illo voluptates, incidunt dolores. Sint eum aut
+      doloribus itaque vitae! Et voluptatem hic itaque, esse nesciunt alias
+      error recusandae?
+    </p>
+    <script>
+      //  Đổi màu chữ của 3 đoạn văn theo thứ tự xanh, vàng, đỏ.
+      function changeColor() {
+        document.getElementById("p1").style.color = "blue";
+        document.getElementById("p2").style.color = "yellow";
+        document.getElementById("p3").style.color = "red";
+      }
+
+      //Bai 1: Thay đổi màu nền của trang thành màu color.
+      function changeBgColor() {
+        document.body.style.backgroundColor = "yellow";
+      }
+      // Bai 2: Thay đổi nội dung của đoạn văn paragraph1 thành giống nội dung của đoạn văn paragraph2
+      //(tham số truyền vào là id của 2 đoạn văn hoặc thứ tự của đoạn văn).
+      function copyContent(paragraph1, paragraph2) {
+        document.getElementById(paragraph1).innerText = document.getElementById( paragraph2).innerText;   
+      }
+      // Bai 3: Thay đổi kích thước font chữ của cả 3 đoạn văn thành x pixels (x là một số nguyên).
+      function changeFontSize(x) {
+        document.getElementById("p1").style.fontSize = x + "px";
+        document.getElementById("p2").style.fontSize = x + "px";
+        document.getElementById("p3").style.fontSize = x + "px";
+      }
+      // chuyen mot chuoi thanh mot so parseFloat('30.5xxx') = 30.5; parseInt("30.5xx") = 30;
+      //  Bai 4: Tăng kích thước font chữ của đoạn văn mong muốn (tham số truyền vào là id đoạn văn hoặc thứ tự đoạn văn) lên 1 pixel so với kích thước hiện tại,
+      // kích thước tăng lên không
+      //được vượt quá 30 pixels (Sử dụng sau khi gọi hàm changeFontSize() hoặc dùng window.getComputedStyle).
+      function increaseFontSize(paragraph) {
+        let sai = document.getElementById(paragraph).style.fontSize;
+        let sizeNumber = parseInt(sai);
+        if (sizeNumber < 30) {
+        document.getElementById(paragraph).style.fontSize =  sizeNumber + 1 + "px";
+        } else {
+          return "Khong Tang Size Vuot Qua 30px";
+        }
+      }
+
+      // Bai 5: Giảm kích thước font chữ của đoạn văn mong muốn (tham số truyền vào là id đoạn văn hoặc thứ tự đoạn văn) 
+      // xuống 1 pixels so với kích thước hiện tại, kích thước giảm xuống không vượt quá 10 pixels.
+      function decreaseFontSize(paragraph) {
+        let sai = document.getElementById(paragraph).style.fontSize;
+        let sizeNumber = parseInt(sai);
+        if (sizeNumber >= 11) {
+        document.getElementById(paragraph).style.fontSize =  sizeNumber - 1 + "px";
+        } else {
+          return "Khong Giam Size Vuot Qua 10px";
+        }
+      }
+    </script>
+  </body>
+</html>
