@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Caculator.css" />
+  </head>
+  <body>
+    <div id="khung">
+      <input type="text" id="ketqua" value="0" />
+
+      <div class="clear_all"></div>
+
+      <div class="button first" onclick="ClickButton(this)">CE</div>
+      <div class="button" onclick="ClickButton(this)">&lt;-</div>
+      <div class="button" onclick="ClickButton(this)">%</div>
+      <div class="button" onclick="ClickButton(this)">+</div>
+
+      <div class="clear_all"></div>
+
+      <div class="button first" onclick="ClickButton(this)">7</div>
+      <div class="button" onclick="ClickButton(this)">8</div>
+      <div class="button" onclick="ClickButton(this)">9</div>
+      <div class="button">-</div>
+
+      <div class="clear_all"></div>
+
+      <div class="button first" onclick="ClickButton(this)">4</div>
+      <div class="button" onclick="ClickButton(this)">5</div>
+      <div class="button" onclick="ClickButton(this)">6</div>
+      <div class="button" onclick="ClickButton(this)">x</div>
+
+      <div class="clear_all"></div>
+
+      <div class="button first" onclick="ClickButton(this)">1</div>
+      <div class="button" onclick="ClickButton(this)">2</div>
+      <div class="button" onclick="ClickButton(this)">3</div>
+      <div class="button" onclick="ClickButton(this)">/</div>
+
+      <div class="clear_all"></div>
+
+      <div class="button first" onclick="ClickButton(this)">0</div>
+      <div class="button" onclick="ClickButton(this)">+/-</div>
+      <div class="button" onclick="ClickButton(this)">.</div>
+      <div class="button" onclick="ClickButton(this)">=</div>
+
+      <div class="clear_all"></div>
+    </div>
+    <script>
+      // Dổi dấu
+      var doi_dau = false;
+
+      // Vừa bấm phép tính
+      var doi_phep_tinh = false;
+
+      // object kết quả
+      var ketqua = document.getElementById("ketqua");
+      // Vừa kết thúc phép tính
+      var end = false;
+      // số phép tính ưu tiên tìm thấy
+      var uu_tien = 0;
+
+      // mảng ghi nhớ các số hạng
+      var mang_so_max_index = 0;
+      var mang_so = new Array();
+
+      // mảng ghi nhớ phép tính
+      var mang_pt_max_index = 0;
+      var mang_pt = new Array();
+
+      // Nội dung đang có
+      var str_ketqua = "";
+
+      // Phím mới
+      var phim_moi = "";
+
+      // Cài Đặt sự kiện
+
+      function ClickButton(obj) {
+        if (end) {
+          ketqua.value = "";
+          end = false;
+        }
+        if (str_ketqua == "" && phim_moi == "") {
+          str_ketqua = ketqua.value;
+        }
+
+        if (str_ketqua == "0") {
+          str_ketqua = "";
+        }
+
+        // HTML cỉa phím bấm
+        var type = obj.innerHTML;
+
+        //NHóm số
+        if (
+          type == "0" ||
+          type == "1" ||
+          type == "2" ||
+          type == "3" ||
+          type == "4" ||
+          type == "5" ||
+          type == "6" ||
+          type == "7" ||
+          type == "8" ||
+          type == "9" ||
+          type == "+/-" ||
+          type == "."
+        ) {
+          doi_phep_tinh = false;
+          // đổi dấu
+          if (type == "+/-") {
+            //đổi từ trừ thành cộng
+            if (doi_dau) {
+              doi_dau = false;
+              phim_moi = phim_moi.substring(1);
+            }
+            // đổi từ cộng thành trừ
+            else {
+              doi_dau = true;
+              phim_moi = "-" + phim_moi;
+            }
+          } else {
+            phim_moi += type;
+          }
+          // Thay đổi hiển thị
+          ketqua.value = str_ketqua + phim_moi;
+        }
+        // Nhóm Phép tính
+        else if (type == "+" || type == "-" || type == "x" || type == "/") {
+          // trước đó có bấm 1 phép tính
+          if (doi_phep_tinh) {
+            mang_pt[mang_pt_max_index - 1] = type;
+            // Xử lý hiển thị
+            ketqua.value =
+              ketqua.value.substring(0, ketqua.value.length - 1) + type;
+             
+          }
+          // chưa có bấm phép tính
+          else {
+              // Lưu vào mảng số
+            mang_so[mang_so_max_index] = parseFloat(phim_moi);
+            mang_so_max_index++;
+             // Lưu vào mảng số
+            mang_pt[mang_pt_max_index] = type;
+            mang_pt_max_index++;
+            // Xử lý hiển thị
+            ketqua.value = ketqua.value + type;
+            // Cộng số đếm ưu tien 
+            if(type == "*" || type=="/"){
+                uu_tien++;
+            }
+          }
+          // Ghi nhớ đã bấm phép tính
+          doi_phep_tinh = true;
+          // Đổi giá trị 2 chuỗi cơ bản về phép rỗng
+          str_ketqua = "";
+          phim_moi = "";
+        }
+        // Nhóm Tính kết quả
+        else if (type == "=" || type == "%") {
+          end = true;
+          if (phim_moi != "") {
+            mang_so[mang_so_max_index] = parseFloat(phim_moi);
+          }
+          //dáu =
+          if (type == "=") {
+            // Gọi hàm tính
+            GetValue()
+          }
+          // Dấu %
+          else {
+            // Gọi hàm tính %
+            GetPercent();
+          }
+
+          str_ketqua = "";
+          phim_moi = "";
+          mang_so = new Array();
+          mang_pt = new Array();
+          mang_so_max_index = 0;
+          mang_pt_max_index = 0;
+        } else if (type == "CE") {
+          phim_moi = "";
+          // thay đổi hiển thị
+          ketqua.value = str_ketqua + phim_moi;
+        } else {
+          if (phim_moi.length > 1) {
+            phim_moi = phim_moi.substring(0, phim_moi.length - 1);
+          } else {
+            phim_moi = "";
+          }
+          // thay đổi hiển thị
+          ketqua.value = str_ketqua + phim_moi;
+        }
+      }
+
+      // tinh %
+      function GetPercent() {
+        mang_pt_max_index--;
+        // Kiểm tra mảng số chỉ có 2 phần tử và phần tử thứ 2 khác 0
+        if (mang_so_max_index != 1 || mang_so[1] == 0) {
+          ketqua.value = "0";
+        }
+        // Phải có 1 phép tính
+        else if (mang_pt_max_index != 0) {
+          ketqua.value = "0";
+        }
+        // Phép tính phải là chia
+        else if (mang_pt[0] != "/") {
+          ketqua.value = "0";
+        } else {
+          var _kq = (mang_so[0] / mang_so[1]) * 100;
+          ketqua.value = _kq;
+        }
+        
+      }
+
+      // tinh gia trị thường
+      function GetValue() {
+        mang_pt_max_index--;
+     // Phép tính ưu tiên 
+
+   
+      }
+    </script>
+  </body>
+</html>
