@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+
+    <style>
+     *{
+         margin: 0px;
+         padding: 0;
+         box-sizing: border-box;
+     }
+     
+     .header{
+         width: 100%;
+         background-color: yellowgreen;
+         
+     }
+     .header-children{
+         width: calc((100% - 50px));
+         height: 50px;
+         margin: 0px 25px;
+         display: flex;
+         justify-content:space-between;
+         align-items: center;
+     }
+     .header-children-block{
+        width: 90px;
+        height: 30px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+     }
+     .container{
+         width: 100%;
+         height: auto;
+         background-color: pink;
+         display: flex;
+         padding: 25px 0px 100px 0px;
+     }
+     .container-block{
+         width: calc((50% - 27.5px));
+         background-color: blue;
+         height: 750px;
+     }
+     .container-block:nth-child(1){
+         margin: 0px 5px 0px 25px;
+     }
+     .container-block:nth-child(2){
+         margin: 0px 25px 0px 0px;
+     }
+
+      @media screen and (max-width: 500px) { 
+        .header{
+         width: 100%;
+         padding: 0px;
+         background-color: yellowgreen; 
+        }
+        .header-children{
+            width: 100%;
+            display: flex;
+            margin: 0;
+        }
+        .header-children-block {
+            width: calc(((100% - 60px)/3));
+            height: 30px;
+        }
+        .header-children-block:nth-child(1){
+            margin: 0px 15px;
+        }
+        .header-children-block:nth-child(2){
+            margin-right: 15px;
+        }
+        .header-children-block:nth-child(3){
+            margin-right: 15px;
+        }
+        .container{
+            width: 100%;
+            display: block;
+            padding: 25px 0px 30px 0px;
+        }
+        .container-block{
+            width: calc((100% - 30px));
+            height: 200px;
+        } 
+        .container-block:nth-child(1){
+            margin: 0px 15px 25px;
+        }
+        .container-block:nth-child(2){
+            margin: 0px 15px 0px 15px;
+        }
+     }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-children">
+        <div class="header-children-block">90 x 30</div>
+        <div class="header-children-block">90 x 30</div>
+        <div class="header-children-block">90 x 30</div>
+        </div>
+    </div>
+
+    <div class="container">
+          <div class="container-block">Block1</div>
+          <div class="container-block">Block2</div>
+    </div>
+</body>
+</html>

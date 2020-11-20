@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        width: 100%;
+        height: 30px;
+        font-size: 10px;
+        text-align: center;
+        background-color: burlywood;
+      }
+      .container {
+          width: 100%;
+          background-color: pink;
+          height: auto;
+          display: flex;
+          padding-bottom: 20px;
+      }
+      .block_1{
+          background-color: cadetblue;
+          margin: 0px 20px;
+          width: calc(2*(100% - 52.5px)/3);
+          height: 415px;
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .block_1_1{
+          background-color: blue;
+          width: calc((50% - 7.5px));
+          height: 200px;
+          color:white;
+          font-size: 30px;
+      }
+      .block_1_1:nth-child(1){
+        width: calc((50% - 7.5px));
+        margin-right: 15px;
+        margin-bottom: 15px;
+      }
+      .block_1_1:nth-child(2){
+        width: calc((50% - 7.5px));
+        margin-bottom: 15px;
+      }
+      .block_1_1:nth-child(3){
+        width: calc((50% - 7.5px));
+         margin-right: 15px;
+      }
+      .block_2{
+          background-color: blue;
+          width: calc((100% - 75px)/3);
+          height: 830px;
+          margin-right: 20px;
+      }
+      @media only screen and (min-width: 768px) and (max-width: 1024px)
+      {
+          *{
+              margin: 0;
+              padding: 0;  
+          }
+         .header{
+          width: 100%;
+          }
+        .container{
+        width: 100%;
+        display: block;
+        padding: 15px 0px 0px 0px;
+        background-color: cadetblue;
+        }
+        .block_1{
+        width:calc((100% - 30px));
+        background-color: cadetblue; 
+        margin: 0px 15px;
+      
+        }
+        .block_1_1 {
+        width: calc((50% - 7.5px)); 
+        }
+        .block_2{
+        width:calc((100% - 30px));
+        margin:20px 15px 0px 15px;
+        height: 400px;   
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>100% x 30</h1>
+    </div>
+
+    <div class="container">
+      <div class="block_1">
+
+        <div class="block_1_1">1</div>
+        <div class="block_1_1">2</div>
+        <div class="block_1_1">3</div>
+        <div class="block_1_1">4</div>
+
+      </div>
+
+      <div class="block_2"></div>
+    </div>
+
+    <div style="text-align: center; background-color: powderblue;">
+     <a href="baitapvenhabuoi4_2.html" ><span style="font-size: 50px; color: red;">Bài 4</span>   </a><br/>
+     <a href="baitapvenhabuoi4_3"><span style="font-size: 50px; color: red;">Bài 5</span> </a>
+    </div>
+  </body>
+</html>
