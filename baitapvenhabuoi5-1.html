@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+      }
+
+      header {
+          width: 100%;
+          height: 60px;
+          background-color: aquamarine;
+          display: flex;
+      }
+
+      header .logo {
+        height: 40px;
+        width: 500px;
+        background-color: pink;
+        border: 1px solid black;
+        line-height: 40px;
+        text-align: center;
+        font-weight: 800;
+        margin: 10px 50px 10px 20px;
+      }
+
+      header .pa-te{
+          width: 100px ;
+          height: 40px;
+          background-color: blue;
+          margin: 10px 20px 10px 0px;
+          display: none;
+      }
+
+      header .pa-te .pa-te-block {
+          height: 6px;
+          width: 70px;
+          background-color: white;
+          margin: 5.4px 15px 5.4px 15px ;
+        
+      }
+
+      .menu {
+          width: calc((100% - 240px));
+          height: 30px;
+          background-color: blue;
+          color: wheat;
+          margin: 15px 20px 15px 0px;
+          display: flex;
+          align-items: center;
+      }  
+
+      .menu .menu-1 {
+          width: calc((100%/3));
+          text-align: center;
+      }
+       .menu .trang-chu{
+           display: none;
+       }
+      .menu .menu-1:nth-child(-n+3) {
+        border-right: 1px solid white ;
+      }
+
+      main {
+          width: 100%;
+          height: auto;
+          background-color: thistle;
+          padding:20px 20px 0px 20px;
+      }
+
+      main .main-block {
+          height: 800px;
+          background-color: blue;
+      }
+
+      @media screen and (max-width: 480px){
+          header {
+              background-color:orange;
+               height: auto;
+               flex-direction: column;
+               padding: 0px 20px;
+          }
+
+          header .logo{display: none;}
+
+          header .pa-te{
+              display: block;
+          }
+          header .menu{
+              display: block;
+              width: 100%;
+              height: auto;
+              
+          }
+          header .menu .trang-chu{
+              display: block;
+              cursor: pointer;
+          }
+          header .menu .menu-1{
+              width: 100%;
+              
+          }
+
+          header .menu .menu-1:nth-child(-n+3){
+             border-right:none;
+             border-bottom: 1px solid white;
+              
+          }
+        
+        main{
+            padding: 0px 20px;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header id="header">
+
+        <div class="logo">LOGO</div>
+
+        <div class="pa-te" onclick="remoteColor()" >
+            <div class="pa-te-block"></div>
+            <div class="pa-te-block"></div>
+            <div class="pa-te-block"></div>
+        </div>
+
+        <div class="menu">
+            <div class="menu-1 trang-chu" > Trang chủ</div>
+            <div class="menu-1">Menu 1</div>
+            <div class="menu-1">Menu 2</div>
+            <div class="menu-1">Menu 3</div>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="main-block"></div>
+
+    </main>
+    <div style="text-align: center; font-size: 50px;"><a href="baitapvenhabuoi5-2.html">Bài Tập 7</a></div>
+    <script>
+        function remoteColor() {
+           document.getElementById('header').style.backgroundColor = "white" ;
+        }
+        
+    </script>
+</body>
+</html>
