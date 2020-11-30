@@ -1,0 +1,262 @@
+*{margin: 0; padding: 0;
+  box-sizing: border-box;
+
+} 
+@font-face {
+    src:url(fonts/Inconsolata-Regular.tff);
+    font-family: Myriad Pro;
+}
+
+@font-face {
+    src:url(fonts/PlayfairDisplay-Regular.tff);
+    font-family: Myriad Pro;
+}
+
+@font-face {
+    src:url(fonts/Ubuntu-Light.tff);
+    font-family: Ubuntu-Light;
+}
+body {
+    background-color: #bfbfbf;
+}
+.wrap {
+    max-width: 1200px;
+    height: auto;
+    margin: auto;
+    background-color: #ffffff;
+   
+}
+/* Bat dau css cho phan header */
+.header{
+    max-width: 1200px;
+    display: flex; 
+    background-color: #ffffff;
+    padding-left:70px ;
+    padding-right:70px ;
+    padding-top:39px ;
+    padding-bottom:25px ;
+}
+.tieude{
+    text-transform: uppercase;
+    font-family: Myriad Pro;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: #000000;
+    margin-right:296px ;
+}
+
+.header-right {
+display: flex;
+text-align: center;
+}
+.header-right .header-right-menu:nth-child(1) {
+ padding: 0 63px;
+}
+.header-right .header-right-menu:nth-child(2) {
+    padding: 0 51px 0 63px;
+}
+.header-right .header-right-menu:nth-child(3) {
+    padding: 0 44.5px 0 51px;}
+.header-right .header-right-menu:nth-child(4) {
+    padding: 0 0px 0px 44.5px;
+}
+.header-right .header-right-menu a {
+    font-family: PlayfairDisplay-Regular;  
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 45px;
+    color: #626262;
+    text-align: center;
+}
+/* Ket thuc phan Css cho phan header */
+
+/* Bat dau css cho anh thu nhat */
+.image_1 {
+    max-width: 1200px;
+    padding-left:70px ;
+    padding-right:70px ;
+}
+/* Ket thuc css cho anh thu nhat */
+
+/* Bat dau css cho doan van Photodiary */
+.photodiary {
+    max-width: 1200px;
+    padding:95px 150px  0px 145px ;
+}
+
+.photodiary span {
+    font-family: Ubuntu-Light ;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #b4ad9e;
+
+}
+
+.photodiary h2 {
+    font-family: Playfair Display Regular;
+    font-size: 30px;
+    color: #626262;
+    padding-top: 27px;
+    padding-bottom:36px ;
+    margin: 0px;
+}
+
+.photodiary p {
+    font-family: Playfair Display Regular;
+    font-size: 16px;
+    color: #626262;
+    line-height: 24px;
+}
+/* Ket thuc css cho doan van Photodiary */
+ /* Bat dau css container */
+.container{
+    margin: 0;
+    padding: 0px;
+}
+.container1{
+
+   background-color: #ffffff; 
+   height:auto;
+   padding:36px 90px  0px 145px ;
+}
+
+.row1 span {
+    font-family: Ubuntu-Light ;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #b4ad9e;
+}
+.row1 {
+    padding-bottom:130px ;
+}
+
+.row2{
+    margin-left:-30px ;
+    padding: 0;
+}
+.row2 .col-md-6 {
+    margin: 0;
+    padding: 0 30px; 
+}
+
+.row2 .col-md-6 span {
+    font-family: Ubuntu-Light ;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #b4ad9e;
+    display: inline-block;
+    margin-top:30px;
+}
+
+.row2 .col-md-6 h2{
+    font-family: Playfair Display Regular;
+    font-size: 30px;
+    color: #626262;
+    padding-top: 28px;
+    padding-bottom:36px ;
+    margin: 0px;
+}
+
+.row2 .col-md-6 p {
+    font-family: Playfair Display Regular;
+    font-size: 16px;
+    color: #626262;
+    line-height: 24px;
+    margin: 0px;
+}
+
+.row3 .col-md-6 {
+    margin-top:134px ;
+}
+/* Ket thuc css container 1*/
+
+
+/* Bat dau cssc cho container2 */
+
+.big_container_2 {
+    max-width: 1500px;
+    background-color: #f0f0f0;
+    margin-top:122px ;
+    height: auto;
+    padding-top:69px ;
+
+}
+
+.container2 h2 {
+ width: 100%;
+ margin: auto;
+ text-align: center;
+ font-family: Playfair Display Regular;
+ font-size: 30px;
+ color: #333333;
+}
+
+.input_email{
+  width: 100%;
+   padding: 88px 392px 73px 400px;
+}
+.input_email span {
+    font-family: Playfair Display Regular;
+    font-size: 14px;
+    color: #626262; 
+    display: inline-block;
+    margin-right: 131px;
+}
+/* Ket thuc cssc cho container2 */
+
+/* Bat dau css cho container 3 */
+.container3{ 
+    margin-top: 67px;
+}
+
+/* Ket thuc css cho container 3 */
+
+/* Bat dau Css cho btn */
+.container_button{
+    padding-bottom:1371px ;
+    padding-top: 161px;
+    padding-left: 517px;
+    padding-right: 518px;
+}
+.btn-load {
+    font-size: 20px;
+    font-family: Playfair Display Regular;
+    border: 1px  #626262 solid ;
+    border-radius:0px ;
+    color: #626262; 
+    padding: 0px;
+    padding: 20px 36px;
+}
+
+/* Ket thuc Css cho btn */
+/* Bat dau CSS phan Footer */
+.container_footer{
+    background-color: #f0f0f0;
+    padding:37px 0px 42px 0px ;
+    
+}
+
+
+.col-md-8 span {
+    font-family: Playfair Display Regular;
+    font-size: 14px;
+    color: black; 
+}
+.col-md-8 .one  {
+    display: inline-block;
+    margin-left: 147px;
+    margin-right: 18px;
+}
+.col-md-4 span {
+    display: inline-block;
+    margin-right: 10px;
+
+}
+.col-md-4 .one  {
+    font-family: Playfair Display Regular;
+    font-size: 14px;
+    color: black; 
+    margin-left: 208px;
+    margin-right: 20px;
+}
+/* Ket thuc phan CSS Footer */
